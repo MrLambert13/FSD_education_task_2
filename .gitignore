@@ -1,1 +1,6 @@
+# PHPStorm configuration
 .idea
+# Developers folder
+dist/
+# Folders with modules
+node_modules/
