@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/MrLambert13/FSD_education_task_2/issues"
   },
-  "homepage": "https://github.com/MrLambert13/FSD_education_task_2#readme",
+  "homepage": "https://mrlambert13.github.io/FSD_education_task_2/",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.6",
