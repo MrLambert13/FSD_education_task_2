@@ -1,3 +1,7 @@
-import './scss/main.scss';
+//SCSS
+import './assets/scss/main.scss';
+
+//JS
+// import './js/'
+
 console.log('hello world');
-console.log('hello world2');
