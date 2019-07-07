@@ -1,10 +1,14 @@
 //webpack v4
 const path = require('path');
+const MiniCssExtractLoader = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackMd5Hash = require('webpack-md5-hash');
+
 module.exports = {
-    entry: {main: './src/index.js'},
+    entry: path.resolve(__dirname, 'src', 'index.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js'
+        filename: '[name].[chunkhash].js'
     },
     module: {
         rules: [
@@ -14,7 +18,26 @@ module.exports = {
                 use: {
                     loader: 'babel-loader'
                 }
+            },
+            {
+                test: /\.s?css$/,
+                use: [
+                    'style-loader',
+                    MiniCssExtractLoader.loader,
+                    'css-loader',
+                    'sass-loader',
+                ],
             }
         ]
-    }
+    },
+    plugins: [
+        new MiniCssExtractLoader({filename: 'style.[contenthash].css'}),
+        new HtmlWebpackPlugin({
+            inject: false,
+            hash: true,
+            template: path.resolve(__dirname, 'src', 'index.html'),
+            filename: 'index.html'
+        }),
+        new WebpackMd5Hash(),
+    ]
 };
