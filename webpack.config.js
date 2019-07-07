@@ -1,5 +1,5 @@
 //webpack v4
-const path = reqire('path');
+const path = require('path');
 module.exports = {
     entry: {main: './src/index.js'},
     output: {
